@@ -1,0 +1,3 @@
+module Inzidenz
+
+end
