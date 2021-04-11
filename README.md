@@ -18,6 +18,10 @@ fig = rki_plot("downloaded_rki_file.xlsx", "2021/04/10")
 save("plot.png", fig.scene) # save the plot into plot.png
 ```
 
+And now you can admire a wonderful plot.
+
+![Inzidenzkarte 10.04.2021](images/1004.png)
+
 I only have tested this on Julia 1.6, but 1.5 should be fine, too.
 
 ## Map data
