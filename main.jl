@@ -33,10 +33,13 @@ end
 
 function read_inzidenzen(rki_excel_file)
     xf = XLSX.readxlsx(rki_excel_file)
-    rows = xf["7Tage_LK"][:][5:end, :]
+    rows = xf["LK_7-Tage-Inzidenz (fixiert)"][:][6:end, [3, end]]
 
-    Dict(map(eachrow(rows)) do row
-        row[2] => row[4]
+    rows_with_content = filter(collect(eachrow(rows))) do row
+        !ismissing(row[1])
+    end
+    Dict(map(rows_with_content) do row
+         @sprintf("%05i", row[1]) => row[2]
     end)
 end
 
@@ -75,7 +78,7 @@ function inzidenz_legend(scene::Scene, date)
 end
 
 function create_plot(kreise, colors, date)
-    fig = Figure(resolution=(1500, 1920), title="10. April 2021")
+    fig = Figure(resolution=(1500, 1920), title="11. November 2021")
     ax = fig[1,1] = Axis(fig)
 
     poly!(ax, kreise, color=colors, strokewidth=1, strokecolor=:white, )
