@@ -20,7 +20,7 @@ save("plot.png", fig.scene) # save the plot into plot.png
 
 And now you can admire a wonderful plot.
 
-![Inzidenzkarte 10.04.2021](images/1004.png)
+![Inzidenzkarte 17.11.2021](images/1711.png)
 
 I only have tested this on Julia 1.6, but 1.5 should be fine, too.
 
